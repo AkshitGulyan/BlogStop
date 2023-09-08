@@ -30,7 +30,9 @@ def signup(request):
             return redirect('home')
         
         if not username.isalnum():
-            messages.error(request, 'Username should be alphanueric in natue')
+            messages.error(request, 'Username should be alphanueric in nature')
+            return redirect('home')
+        
 
         
         myuser = User.objects.create_user(username, email, pass1)
