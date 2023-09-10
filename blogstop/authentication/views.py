@@ -119,8 +119,15 @@ def activate(request, uidb64, token):
     if myuser is not None and generate_token.check_token(myuser, token):
         myuser.is_active = True
         myuser.save()
+        fname = myuser.first_name
         login(request, myuser)
-        return redirect('home')
+        return redirect('home', {'fname' : fname})
     else:
         messages.error(request, 'Activation is not done, Please try again')
         return redirect('home')
+    
+def about(request):
+    return render(request, 'authentication/about.html')
+
+def contact(request):
+    return render(request, 'authentication/contact.html')
