@@ -121,7 +121,7 @@ def activate(request, uidb64, token):
         myuser.save()
         fname = myuser.first_name
         login(request, myuser)
-        return redirect('home', {'fname' : fname})
+        return render(request, "authentication/index.html", {'fname' : fname})
     else:
         messages.error(request, 'Activation is not done, Please try again')
         return redirect('home')
