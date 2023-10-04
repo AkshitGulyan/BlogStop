@@ -101,9 +101,9 @@
               <img src="{% static 'images/b1.jpg' %}" alt="">
             </div>
             <div class="detail-box">
-              <h5>
+              <h5><a href="{% url 'article' post.pk %}">
                 {{ post.title }} by {{ post.author }}
-                {{ post.body }}
+              </a>
               </h5>
               <!-- <p>
                 {{ post.body }}
