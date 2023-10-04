@@ -5,4 +5,6 @@ from .views import Blogview , Detailedview
 urlpatterns = [
     path("blog", Blogview.as_view(), name="blog"),
     path('article/<int:pk>', Detailedview.as_view(), name='article'),
+    path("article/index", Blogview.as_view(), name="blog"),
+
 ]
