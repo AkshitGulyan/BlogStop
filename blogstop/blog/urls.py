@@ -7,13 +7,13 @@ from authentication import views
 urlpatterns = [
     path("blog", Blogview.as_view(), name="blog"),
     path('article/<int:pk>', Detailedview.as_view(), name='article'),
-    path("article/blog", Blogview.as_view(), name="blog"),
-    path('article/index', views.home, name='home'),
-    path('article/signup', views.signup, name='signup'),
-    path('article/signin', views.signin, name='signin'),
-    path('article/signout', views.signout, name='signout'),
-    path('article/about', views.about, name='about'),
-    path('article/contact', views.contact, name='contact'),
+    path("blog", Blogview.as_view(), name="blog"),
+    path('index', views.home, name='home'),
+    path('signup', views.signup, name='signup'),
+    path('signin', views.signin, name='signin'),
+    path('signout', views.signout, name='signout'),
+    path('about', views.about, name='about'),
+    path('contact', views.contact, name='contact'),
 
 
 ]
