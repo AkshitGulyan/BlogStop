@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Blogview , Detailedview
+from .views import Blogview , Detailedview, AddPostView
 from authentication import views
 
 
@@ -14,6 +14,5 @@ urlpatterns = [
     path('signout', views.signout, name='signout'),
     path('about', views.about, name='about'),
     path('contact', views.contact, name='contact'),
-
-
+    path('addpost', AddPostView.as_view(), name='add_post'),
 ]

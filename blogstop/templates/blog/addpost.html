@@ -1,0 +1,10 @@
+<html>
+    <head><title>add blog</title></head>
+    <body>
+        <h1>Add Blog</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Post</button>
+    </body>
+</html>
