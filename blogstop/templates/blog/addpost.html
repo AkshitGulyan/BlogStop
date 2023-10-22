@@ -1,10 +1,167 @@
+<!DOCTYPE html>
 <html>
-    <head><title>add blog</title></head>
+
+<head>
+  <!-- Basic -->
+  {% load static %}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>BlogStop</title>
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message:</strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+  </div>
+  {% endfor %}
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section long_section px-0">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index">
+          <span>
+            BlogStop
+          </span>
+        </a>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="contact">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          {% if user.is_authenticated %}
+          <h3>Hello {{fname}}!</h3>
+          <button type="submit"><a href="/signout">SignOut</a></button>
+          {% else %}
+          <div class="quote_btn-container">
+            <a href="signin">
+              <span>
+                Login
+              </span>
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+            <form class="form-inline">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+          {% endif %}
+        </div>
+      </nav>
+    </header>
+    <!-- end header section -->
+  </div>
     <body>
-        <h1>Add Blog</h1>
+        <br>
+            <br>
+        <center style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; font-style: italic;"><strong><u>Add Your Blog</u></strong></center>
+        <br>
+        <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_table }}
+        </table>
+        <br>
+        <div style="text-align: center;">
             <button>Post</button>
-    </body>
+        </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+    <section class="info_section long_section">
+
+    <div class="container">
+      <div class="info_top ">
+        <div class="row ">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="info_links">
+              <h4>
+                QUICK LINKS
+              </h4>
+              <div class="info_links_menu">
+                <a class="" href="index">Home <span class="sr-only">(current)</span></a>
+                <a class="" href="about"> About</a>
+                <a class="" href="blog.html">Blog</a>
+                <a class="" href="contact">Contact Us</a>
+              </div>
+            </div>
+          </div>
+          
+          
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+
+
+
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzowARcZAMKgcvWT3XTWIkP_V6WJHp5CU&callback=myMap"></script>
+  <!-- End Google Map -->
+
+</body>
+
 </html>
+
+
+
+
+
+
+
+  
