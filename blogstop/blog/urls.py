@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Blogview , Detailedview, AddPostView
+from .views import Blogview , Detailedview, AddPostView, UpdatePostView
 from authentication import views
 
 
@@ -15,4 +15,6 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('contact', views.contact, name='contact'),
     path('addpost', AddPostView.as_view(), name='add_post'),
+    path('article/update/<int:pk>', UpdatePostView.as_view(), name='update_post'),
+    
 ]
