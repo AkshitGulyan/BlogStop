@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
+from django.urls import reverse_lazy
 
 class Blogview(ListView):
     model = Post
     template_name = 'blog/blog.html'
+    ordering = ['-id']
 
 class Detailedview(DetailView):
     model=Post
@@ -19,3 +21,8 @@ class UpdatePostView(UpdateView):
     model = Post
     template_name = "blog/updateblog.html"
     fields = ['title', 'body']
+
+class DeletePostView(DeleteView):
+    model= Post
+    template_name = "blog/deleteblog.html"
+    success_url = reverse_lazy('blog')
