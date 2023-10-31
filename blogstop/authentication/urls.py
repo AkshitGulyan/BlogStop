@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from . import views
+from blog.views import AddPostView, Detailedview
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -11,4 +12,6 @@ urlpatterns = [
     path('activate/<uidb64>/<token>', views.activate, name='activate'),
     path('about', views.about, name='about'),
     path('contact', views.contact, name='contact'),
+    path('addpost', AddPostView.as_view(), name='add_post'),
+    path('article/<int:pk>', Detailedview.as_view(), name='article'),
 ]
