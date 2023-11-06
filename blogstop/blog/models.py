@@ -17,5 +17,5 @@ class Post(models.Model):
         a=str(self.pk)
         # print(a)
         # print(type(a))
-        return reverse('article',args={a})
+        return reverse('article',args=(str(a)))
     
