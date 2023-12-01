@@ -14,8 +14,7 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         # print(type(self.id))
-        a=str(self.pk)
         # print(a)
         # print(type(a))
-        return reverse('article',args=(str(a)))
+        return reverse('article',args=(str(self.id)))
     
